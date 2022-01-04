@@ -14,6 +14,9 @@ inputs:
     description: Helm chart path. If set to "app" this will use the built in helm
       chart found in this repository. (required)
     required: true
+  chart_version:
+    description: The version of the helm chart you want to deploy (distinct from app version)
+    required: false
   values:
     description: Helm chart values, expected to be a YAML or JSON string.
     required: false
