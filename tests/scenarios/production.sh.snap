@@ -5,14 +5,14 @@
 ::debug::param: appName = "app"
 ::debug::param: namespace = "default"
 ::debug::param: chart = "/usr/src/charts/app"
-::debug::param: chart_version = ""
+::debug::param: chart_version = "1.0.0"
 ::debug::param: values = "{"replicaCount": 1, "image": {"repository": "nginx", "tag": "latest"}}"
 ::debug::param: dryRun = ""
 ::debug::param: task = ""
 ::debug::param: version = "1234"
 ::debug::param: secrets = "{"secret":"val"}"
 ::debug::param: valueFiles = "[]"
-::debug::param: removeCanary = 
+::debug::param: removeCanary =
 ::debug::param: timeout = "30"
 ::debug::param: repository = ""
 ::debug::param: repository_password = ""

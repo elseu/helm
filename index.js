@@ -103,10 +103,17 @@ function getValueFiles(files) {
 function getInput(name, options) {
   const context = github.context;
   const deployment = context.payload.deployment;
-  let val = core.getInput(name.replace("_", "-"), {
+  let val = core.getInput(name, {
     ...options,
     required: false
   });
+  // Make sure that INPUT_ also works because env variables with - is not valid.
+  if (val.length === 0 && name.includes('-')) {
+    val = core.getInput(name.replace('-', '_'), {
+      ...options,
+      required: false
+    });
+  }
   if (deployment) {
     if (deployment[name]) val = deployment[name];
     if (deployment.payload[name]) val = deployment.payload[name];
@@ -217,12 +224,12 @@ async function run() {
     const release = releaseName(appName, track);
     const namespace = getInput("namespace", required);
     const chart = chartName(getInput("chart", required));
-    const chartVersion = getInput("chart_version");
+    const chartVersion = getInput("chart-version");
     const values = getValues(getInput("values"));
     const task = getInput("task");
     const version = getInput("version");
-    const valueFiles = getValueFiles(getInput("value_files"));
-    const removeCanary = getInput("remove_canary");
+    const valueFiles = getValueFiles(getInput("value-files"));
+    const removeCanary = getInput("remove-canary");
     const helm = getInput("helm") || "helm";
     const timeout = getInput("timeout");
     const repository = getInput("repository");
