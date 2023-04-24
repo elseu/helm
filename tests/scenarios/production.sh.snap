@@ -23,6 +23,6 @@
 ::debug::env: KUBECONFIG="undefined"
 ::debug::rendering value files [./values.yml] with: {"secrets":{"secret":"val"}}
 Install helm chart
-[command]/tmp/bin/helm upgrade app /usr/src/charts/app --install --wait --atomic --namespace=default --set=app.name=app --set=app.version=1234 --timeout=30s --values=./values.yml
-helm upgrade app /usr/src/charts/app --install --wait --atomic --namespace=default --set=app.name=app --set=app.version=1234 --timeout=30s --values=./values.yml
+[command]/tmp/bin/helm upgrade app /usr/src/charts/app --install --wait --atomic --namespace=default --set=app.name=app --set=app.version=1234 --version=1.0.0 --timeout=30s --values=./values.yml
+helm upgrade app /usr/src/charts/app --install --wait --atomic --namespace=default --set=app.name=app --set=app.version=1234 --version=1.0.0 --timeout=30s --values=./values.yml
 ::debug::not setting deployment status
