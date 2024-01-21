@@ -1,0 +1,16 @@
+# nonk8s
+apiVersion: backstage.io/v1beta1
+kind: Component
+metadata:
+  name: sdu-helm-deploy-action
+  description: "GitHub action for deploying Helm charts."
+  annotations:
+    github.com/project-slug: elseu/sdu-helm-deploy-action
+    backstage.io/source-location: url:https://github.com/elseu/sdu-helm-deploy-action/
+  tags:
+    - github-actions
+    - javascript
+spec:
+  type: workflow
+  owner: team-devops
+  lifecycle: deprecated
